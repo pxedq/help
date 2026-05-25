@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Az alábbi kódrészletek csak példák és nem valószínű, hogy 1/1 érdemes őket használni
+> Az alábbi kódrészletek csak példák, és nem valószínű, hogy közvetlenül felhasználhatók módosítás nélkül éles környezetben.
 
 # Java - CLI
 > [!TIP]
