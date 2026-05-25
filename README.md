@@ -237,3 +237,41 @@ public class HelloController {
     }
 }
 ```
+# Backend
+### importok
+```
+pnpm init
+pnpm i express cors mysql2
+```
+### Fájl importok
+```
+import express from "express";
+import cors from "cors";
+import mysql from "mysql2/promise";
+```
+### app létrehozás
+```
+const app = express();
+app.use(express.json());
+app.use(cors());
+```
+### MySQL Connection létrehozás
+```
+const con = await mysql.createConnection({
+  host: "localhost",
+  port: 3306,
+  database: "adatbázisnev", //cseréld ki
+  user: "root",
+  password: ""
+});
+```
+### Meghívások, app.listen
+```
+app.get("/", (req, res) => res.send("<h1>Zenék v1.0.0</h1>"));
+app.get("/zenek", getZenek);
+app.post("/zene", postZene);
+app.put("/zene/:id", putZene);
+app.delete("/zene/:id", deleteZene);
+
+app.listen(88, err => console.log(err ? err : "Server on #88"));
+```
