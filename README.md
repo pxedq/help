@@ -403,3 +403,7 @@ app.delete("/zene/:id", deleteZene);
 
 app.listen(88, err => console.log(err ? err : "Server on #88"));
 ```
+# Frontend
+```
+Engedd el...
+```
