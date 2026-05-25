@@ -90,3 +90,19 @@ try {
     if (ki != null) ki.close();
 }
 ```
+### TreeMap példa
+```
+TreeMap<Integer, Integer> stat = new TreeMap<>();
+for (Fovaros f : fovarosok) {
+    int kat = f.folakos / 5_000_000;
+    if (!stat.containsKey(kat)) {
+        stat.put(kat, 1);
+    } else {
+        stat.put(kat, stat.get(kat) + 1);
+    }
+}
+System.out.printf("5) Fővárosok népesség szerint csoportosítva (5 milló fő):\n");
+for (Integer kat : stat.keySet()) {
+    System.out.printf("   %,10d - %,10d: %d\n", kat*5_000_000, (kat+1)*5_000_000-1, stat.get(kat));
+}
+```
