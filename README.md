@@ -209,6 +209,7 @@ public class HelloController {
 
     @FXML private void onMegnyitasClick() {
         //...
+        onGyartoPressed(); //plusz függvény meghívása
     }
 
     //A feladat plusz/egyéni függvénye(i)
