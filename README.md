@@ -145,3 +145,19 @@ public void initialize() {
     }
 }
 ```
+### Kilépés
+```
+@FXML private void onKilepesClick() {
+    Platform.exit();
+}
+```
+### Névjegy
+```
+@FXML private void onNevjegyClick() {
+    Alert info = new Alert(Alert.AlertType.INFORMATION);
+    info.setTitle("Névjegy");
+    info.setHeaderText(null);
+    info.setContentText("Repülők v1.0.0\n(C) Kandó");
+    info.showAndWait();
+}
+```
