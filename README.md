@@ -23,7 +23,7 @@ public void betolt(String fajlnev) {
         be = new Scanner(new File(fajlnev), "utf-8");
         be.nextLine();
         while (be.hasNextLine()) allatok.add(new Allat(be.nextLine()));
-    } catch (FileNotFoundException e) {
+    } catch (Exception e) {
         e.printStackTrace();
     } finally {
         if (be != null) be.close();
@@ -64,8 +64,8 @@ public class Main {
             while (be.hasNextLine()) {
                 adatok.add(new Adat(be.nextLine()));
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (be != null) be.close();
         }
@@ -74,5 +74,19 @@ public class Main {
     public static void main(String[] args) {
         new Main();
     }
+}
+```
+### Kiíratás külön fájlba
+```
+PrintWriter ki = null;
+try {
+    ki = new PrintWriter(new File("kicsi.csv"), "utf-8");
+    for (Allat a : allatok) {
+        if (a.magas < 100) ki.printf("%s;%d;%d;%d\r\n", a.fajta, a.magas, a.suly, a.kor);
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+    if (ki != null) ki.close();
 }
 ```
