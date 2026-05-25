@@ -16,7 +16,7 @@ private class Allat {
     }
 }
 ```
-### Fájlbeolvasás
+### Fájlbetöltés
 ```
 public void betolt(String fajlnev) {
     Scanner be = null;
@@ -159,5 +159,80 @@ public void initialize() {
     info.setHeaderText(null);
     info.setContentText("Repülők v1.0.0\n(C) Kandó");
     info.showAndWait();
+}
+```
+### Fájlbetöltés
+```
+private void betolt(File fajl) {
+    Scanner be = null;
+    try {
+        be = new Scanner(fajl, "utf-8");
+        be.nextLine();
+        while (be.hasNextLine()) filmek.add(new Film(be.nextLine()));
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        if (be != null) be.close();
+    }
+}
+```
+### Teljes minta
+```
+public class HelloController {
+
+    @FXML private ListView<String> lsGyartok;
+    @FXML private ListView<String> lsTipusok;
+
+    private class Repulo {
+        public String tipus;
+        public float hossz;
+        public int suly;
+        public int ferohely;
+        public int tank;
+
+        public Repulo(String sor) {
+            String[] s = sor.split(";");
+            tipus = s[0];
+            hossz = Float.parseFloat(s[1]);
+            suly = Integer.parseInt(s[2]);
+            ferohely = Integer.parseInt(s[3]);
+            tank = Integer.parseInt(s[4]);
+        }
+    }
+
+    private ArrayList<Repulo> repulok = new ArrayList<>();
+    private FileChooser fc = new FileChooser();
+
+    public void initialize() {
+        //...
+    }
+
+    @FXML private void onMegnyitasClick() {
+        //...
+    }
+
+    //A feladat plusz/egyéni függvénye(i)
+    @FXML private void onGyartoPressed() {
+        int i = lsGyartok.getSelectionModel().getSelectedIndex();
+        if (i != -1) {
+            String gyarto = lsGyartok.getSelectionModel().getSelectedItem();
+            lsTipusok.getItems().clear();
+            for (Repulo repulo : repulok) {
+                if (repulo.tipus.split(" ")[0].equals(gyarto)) lsTipusok.getItems().add(repulo.tipus);
+            }
+        }
+    }
+
+    @FXML private void onKilepesClick() {
+        Platform.exit();
+    }
+
+    @FXML private void onNevjegyClick() {
+        //...
+    }
+
+    private void betolt(File fajl) {
+        //...
+    }
 }
 ```
