@@ -6,6 +6,7 @@ private class Allat {
     public int magas;
     public int suly;
     public int kor;
+
     public Allat(String sor) {
         String[] s = sor.split(";");
         fajta = s[0];
@@ -104,5 +105,43 @@ for (Fovaros f : fovarosok) {
 System.out.printf("5) Fővárosok népesség szerint csoportosítva (5 milló fő):\n");
 for (Integer kat : stat.keySet()) {
     System.out.printf("   %,10d - %,10d: %d\n", kat*5_000_000, (kat+1)*5_000_000-1, stat.get(kat));
+}
+```
+# JavaFX - GUI
+### initialize
+```
+public void initialize() {
+    fc.setInitialDirectory(new File("./"));
+    fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV fájlok", "*.csv"));
+}
+```
+### Fájlmegnyitás - ListView
+```
+@FXML private void onMegnyitasClick() {
+    File fbe = fc.showOpenDialog(lsGyartok.getScene().getWindow());
+    if (fbe != null) {
+        betolt(fbe);
+        lsGyartok.getItems().clear();
+        TreeSet<String> gyartok = new TreeSet<>();
+        for (Repulo repulo : repulok) gyartok.add(repulo.tipus.split(" ")[0]);
+        for (String gyarto : gyartok) lsGyartok.getItems().add(gyarto);
+        lsGyartok.getSelectionModel().select(0);
+        //onGyartoPressed(); plusz függvény meghívása
+    }
+}
+```
+### Fájlmegnyitás - ComboBox
+```
+@FXML private void onMegnyitasClick() {
+    File fbe = fc.showOpenDialog(lsLista.getScene().getWindow());
+    if (fbe != null) {
+        filmek.clear(); cmEvek.getItems().clear(); //csak ez változik a ListView-hoz képest asszem
+        betolt(fbe);
+        TreeSet<Integer> evek = new TreeSet<>();
+        for (Film f : filmek) evek.add(f.ev);
+        for (Integer ev : evek) cmEvek.getItems().add(ev);
+        cmEvek.getSelectionModel().select(0);
+        //onEvekChange(); plusz függvény meghívása
+    }
 }
 ```
