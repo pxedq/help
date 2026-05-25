@@ -275,3 +275,131 @@ app.delete("/zene/:id", deleteZene);
 
 app.listen(88, err => console.log(err ? err : "Server on #88"));
 ```
+### Feladat típus minták
+```
+//GET teljes
+async function getOsztalyok(req, res) {
+    try {
+        let sql = "SELECT * FROM osztalyok ORDER BY osztaly"
+        const [ json ] = await con.query(sql, []);
+        res.send(json);
+    } catch (error) {
+        res.status(500).send({ error:"Adatbázis hiba!" });
+    }
+}
+
+//GET szűrt
+async function getTanulokByOaz(req, res) {
+    let { oaz } = req.params;
+    if (oaz) {
+        try {
+            let sql = "SELECT * FROM tanulok WHERE oaz=? ORER BY nev";
+            const [ json ] = await con.query(sql, [oaz]);
+            res.send(json);
+        } catch (error) {
+            res.status(500).send({ error:"Adatbázis hiba!" });
+        }
+    } else {
+        res.status(400).send({ error:"Hibás paraméter!" });
+    }   
+}
+
+//POST
+async function postTanulo(req, res) {
+    let { nev, nem, kor, kep, oaz } = req.body;
+    if (nev && nem && kor && kep && oaz) {
+        try {
+            let sql = "INSERT INTO tanulok SET nev=?, nem=?, kor=?, kep=?, oaz=?";
+            const [ json ] = await con.query(sql, [nev, nem, kor, kep, oaz]);
+            res.status(201).send({ msg:"Tanuló sikeresen felvéve." });
+        } catch (error) {
+            res.status(500).send({ error:"Adatbázis hiba!" });
+        }
+    } else {
+        res.status(400).send({ error:"Hibás paraméter(ek)!" });
+    }
+}
+
+//PUT
+async function putTanuloByTaz(req, res) {
+    let { taz } = req.params;
+    let { nev, nem, kor, kep, oaz } = req.body;
+    if (nev && nem && kor && kep && oaz) {
+        try {
+            let sql = "UPDATE tanulok SET nev=?, nem=?, kor=?, kep=?, oaz=? WHERE taz=?";
+            const [ json ] = await con.query(sql, [nev, nem, kor, kep, oaz, taz]);
+            if (json.affectedRows != 0) {
+                res.status(200).send({ msg:"Tanuló sikeresen módosítva." });
+            } else {
+                res.status(404).send({ msg:"Nincs ilyen azonosítójú tanuló." });
+            }
+        } catch (error) {
+            res.status(500).send({ error:"Adatbázis hiba!" });
+        }
+    } else {
+        res.status(400).send({ error:"Hibás paraméter(ek)!" });
+    }
+}
+
+//DELETE
+async function deleteTanuloByTaz(req, res) {
+    let { taz } = req.params;
+    if (taz) {
+        try {
+            let sql = "DELETE FROM tanulok WHERE taz=?";
+            const [ json ] = await con.query(sql, [taz]);
+            if (json.affectedRows != 0) {
+                res.status(200).send({ msg:"Tanuló sikeresen törölve." });
+            } else {
+                res.status(404).send({ msg:"Nincs ilyen azonosítójú tanuló." });
+            }
+        } catch (error) {
+            res.status(500).send({ error:"Adatbázis hiba!" });
+        }
+    } else {
+        res.status(400).send({ error:"Hibás paraméter!" });
+    }
+}
+```
+### Teljes minta
+```
+import express from "express";
+import cors from "cors";
+import mysql from "mysql2/promise";
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+const con = await mysql.createConnection({
+  host: "localhost",
+  port: 3306,
+  database: "zenek",
+  user: "root",
+  password: ""
+});
+
+async function getZenek(req, res) {
+    //...
+}
+
+async function postZene(req, res) {
+    //...
+}
+
+async function putZene(req, res) {
+    //...
+}
+
+async function deleteZene(req, res) {
+    //...
+}
+
+app.get("/", (req, res) => res.send("<h1>Zenék v1.0.0</h1>"));
+app.get("/zenek", getZenek);
+app.post("/zene", postZene);
+app.put("/zene/:id", putZene);
+app.delete("/zene/:id", deleteZene);
+
+app.listen(88, err => console.log(err ? err : "Server on #88"));
+```
