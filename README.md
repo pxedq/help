@@ -1,7 +1,7 @@
 # Java - CLI
 > [!TIP]
 > Konkrét JavaCLI feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/javacli)
-### Osztály létrehozása
+### Osztály létrehozása (példa)
 ```
 private class Allat {
     public String fajta;
@@ -18,7 +18,7 @@ private class Allat {
     }
 }
 ```
-### Fájlbetöltés
+### Fájlbetöltés (példa)
 ```
 public void betolt(String fajlnev) {
     Scanner be = null;
