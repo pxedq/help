@@ -417,10 +417,8 @@ app.delete("/zene/:id", deleteZene);
 app.listen(88, err => console.log(err ? err : "Server on #88"));
 ```
 # Frontend
+> [!NOTE]
+> FMarcell06 frontend help-jéhez kattints [ide]((https://github.com/FMarcell06/help))
+
 > [!TIP]
-> Konkrét Frontend feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/frontend)
-> 
-> Összetett Webes App feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/osszetettwebappok)
-```
-Engedd el...
-```
+> FMarcell06 frontend feladataihoz kattints [ide](https://github.com/FMarcell06?tab=repositories)
