@@ -4,7 +4,7 @@
 # Java - CLI
 > [!TIP]
 > Konkrét JavaCLI feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/javacli)
-### Osztály létrehozása (példa)
+### Osztály létrehozása
 ```
 private class Allat {
     public String fajta;
