@@ -275,9 +275,9 @@ app.delete("/zene/:id", deleteZene);
 
 app.listen(88, err => console.log(err ? err : "Server on #88"));
 ```
-### Feladat típus minták
+## Feladat típus minták
+### GET Teljes
 ```
-//GET teljes
 async function getOsztalyok(req, res) {
     try {
         let sql = "SELECT * FROM osztalyok ORDER BY osztaly"
@@ -287,8 +287,9 @@ async function getOsztalyok(req, res) {
         res.status(500).send({ error:"Adatbázis hiba!" });
     }
 }
-
-//GET szűrt
+```
+### GET Szűrt
+```
 async function getTanulokByOaz(req, res) {
     let { oaz } = req.params;
     if (oaz) {
@@ -303,8 +304,9 @@ async function getTanulokByOaz(req, res) {
         res.status(400).send({ error:"Hibás paraméter!" });
     }   
 }
-
-//POST
+```
+### POST
+```
 async function postTanulo(req, res) {
     let { nev, nem, kor, kep, oaz } = req.body;
     if (nev && nem && kor && kep && oaz) {
@@ -319,8 +321,9 @@ async function postTanulo(req, res) {
         res.status(400).send({ error:"Hibás paraméter(ek)!" });
     }
 }
-
-//PUT
+```
+### PUT
+```
 async function putTanuloByTaz(req, res) {
     let { taz } = req.params;
     let { nev, nem, kor, kep, oaz } = req.body;
@@ -340,8 +343,9 @@ async function putTanuloByTaz(req, res) {
         res.status(400).send({ error:"Hibás paraméter(ek)!" });
     }
 }
-
-//DELETE
+```
+### DELETE
+```
 async function deleteTanuloByTaz(req, res) {
     let { taz } = req.params;
     if (taz) {
