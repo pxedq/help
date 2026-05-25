@@ -1,6 +1,6 @@
 # Java - CLI
 > [!TIP]
-> Konkrét JavaCLI feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/javacli/){:target="_blank"}
+> Konkrét JavaCLI feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/javacli)
 ### Osztály létrehozása
 ```
 private class Allat {
@@ -110,6 +110,8 @@ for (Integer kat : stat.keySet()) {
 }
 ```
 # JavaFX - GUI
+> [!TIP]
+> Konkrét JavaFX-GUI feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/javafx)
 ### initialize
 ```
 public void initialize() {
@@ -240,6 +242,8 @@ public class HelloController {
 }
 ```
 # Backend
+> [!TIP]
+> Konkrét Backend feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/backend)
 ### importok
 ```
 pnpm init
@@ -410,6 +414,9 @@ app.delete("/zene/:id", deleteZene);
 app.listen(88, err => console.log(err ? err : "Server on #88"));
 ```
 # Frontend
+> [!TIP]
+> Konkrét Frontend feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/frontend)
+> Összetett Webes App feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/osszetettwebappok)
 ```
 Engedd el...
 ```
