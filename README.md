@@ -79,7 +79,7 @@ public class Main {
     }
 }
 ```
-### Kiíratás külön fájlba
+### Kiíratás külön fájlba (példa)
 ```
 PrintWriter ki = null;
 try {
@@ -93,7 +93,7 @@ try {
     if (ki != null) ki.close();
 }
 ```
-### TreeMap példa
+### TreeMap működés (példa)
 ```
 TreeMap<Integer, Integer> stat = new TreeMap<>();
 for (Fovaros f : fovarosok) {
@@ -119,7 +119,7 @@ public void initialize() {
     fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV fájlok", "*.csv"));
 }
 ```
-### Fájlmegnyitás - ListView
+### Fájlmegnyitás - ListView (példa)
 ```
 @FXML private void onMegnyitasClick() {
     File fbe = fc.showOpenDialog(lsGyartok.getScene().getWindow());
@@ -155,7 +155,7 @@ public void initialize() {
     Platform.exit();
 }
 ```
-### Névjegy
+### Névjegy (példa)
 ```
 @FXML private void onNevjegyClick() {
     Alert info = new Alert(Alert.AlertType.INFORMATION);
@@ -165,7 +165,7 @@ public void initialize() {
     info.showAndWait();
 }
 ```
-### Fájlbetöltés
+### Fájlbetöltés (példa)
 ```
 private void betolt(File fajl) {
     Scanner be = null;
@@ -271,7 +271,7 @@ const con = await mysql.createConnection({
   password: ""
 });
 ```
-### Meghívások, app.listen
+### Meghívások (példák), app.listen
 ```
 app.get("/", (req, res) => res.send("<h1>Zenék v1.0.0</h1>"));
 app.get("/zenek", getZenek);
@@ -281,7 +281,7 @@ app.delete("/zene/:id", deleteZene);
 
 app.listen(88, err => console.log(err ? err : "Server on #88"));
 ```
-## Feladat típus minták
+## Feladat típus minták (példa)
 ### GET Teljes
 ```
 async function getOsztalyok(req, res) {
