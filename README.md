@@ -416,6 +416,7 @@ app.listen(88, err => console.log(err ? err : "Server on #88"));
 # Frontend
 > [!TIP]
 > Konkrét Frontend feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/frontend)
+> > [!TIP]
 > Összetett Webes App feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/osszetettwebappok)
 ```
 Engedd el...
