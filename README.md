@@ -1,22 +1,48 @@
-## Java (konzolos)
+# Java - CLI
+### Osztály létrehozása
+```
+private class Allat {
+    public String fajta;
+    public int magas;
+    public int suly;
+    public int kor;
+    public Allat(String sor) {
+        String[] s = sor.split(";");
+        fajta = s[0];
+        magas = Integer.parseInt(s[1]);
+        suly = Integer.parseInt(s[2]);
+        kor = Integer.parseInt(s[3]);
+    }
+}
+```
 ### Fájlbeolvasás
 ```
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
+public void betolt(String fajlnev) {
+    Scanner be = null;
+    try {
+        be = new Scanner(new File(fajlnev), "utf-8");
+        be.nextLine();
+        while (be.hasNextLine()) allatok.add(new Allat(be.nextLine()));
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } finally {
+        if (be != null) be.close();
+    }
+}
+```
+### Teljes minta
+```
 public class Main {
-    public class Adat {
+    private class Adat {
         public String adat1;
-        public String adat2;
-        public String adat3;
+        public int adat2;
+        //...
 
         public Adat(String sor) {
             String[] s = sor.split(";");
             adat1 = s[0];
-            adat2 = s[1];
-            adat3 = s[2];
+            adat2 = Integer.parseInt(s[1);
+            //...
         }
     }
 
@@ -28,7 +54,7 @@ public class Main {
         System.out.printf("0) %d sor adata beolvasva\n", adatok.size());
 
         // --- 1. feladat ---
-        [...]
+        //...
     }
 
     private void betolt(String fajlnev) {
