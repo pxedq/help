@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Az alábbi kódrészletek csak példák és nem valószínű, hogy 1/1 érdemes őket használni
+
 # Java - CLI
 > [!TIP]
 > Konkrét JavaCLI feladatokhoz kattints [ide](https://github.com/stars/pxedq/lists/javacli)
@@ -18,7 +21,7 @@ private class Allat {
     }
 }
 ```
-### Fájlbetöltés (példa)
+### Fájlbetöltés
 ```
 public void betolt(String fajlnev) {
     Scanner be = null;
@@ -79,7 +82,7 @@ public class Main {
     }
 }
 ```
-### Kiíratás külön fájlba (példa)
+### Kiíratás külön fájlba
 ```
 PrintWriter ki = null;
 try {
@@ -93,7 +96,7 @@ try {
     if (ki != null) ki.close();
 }
 ```
-### TreeMap működés (példa)
+### TreeMap működés
 ```
 TreeMap<Integer, Integer> stat = new TreeMap<>();
 for (Fovaros f : fovarosok) {
@@ -119,7 +122,7 @@ public void initialize() {
     fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV fájlok", "*.csv"));
 }
 ```
-### Fájlmegnyitás - ListView (példa)
+### Fájlmegnyitás - ListView
 ```
 @FXML private void onMegnyitasClick() {
     File fbe = fc.showOpenDialog(lsGyartok.getScene().getWindow());
@@ -155,7 +158,7 @@ public void initialize() {
     Platform.exit();
 }
 ```
-### Névjegy (példa)
+### Névjegy
 ```
 @FXML private void onNevjegyClick() {
     Alert info = new Alert(Alert.AlertType.INFORMATION);
@@ -165,7 +168,7 @@ public void initialize() {
     info.showAndWait();
 }
 ```
-### Fájlbetöltés (példa)
+### Fájlbetöltés
 ```
 private void betolt(File fajl) {
     Scanner be = null;
@@ -271,7 +274,7 @@ const con = await mysql.createConnection({
   password: ""
 });
 ```
-### Meghívások (példák), app.listen
+### Meghívások, app.listen
 ```
 app.get("/", (req, res) => res.send("<h1>Zenék v1.0.0</h1>"));
 app.get("/zenek", getZenek);
@@ -281,7 +284,7 @@ app.delete("/zene/:id", deleteZene);
 
 app.listen(88, err => console.log(err ? err : "Server on #88"));
 ```
-## Feladat típus minták (példa)
+## Feladat típus minták
 ### GET Teljes
 ```
 async function getOsztalyok(req, res) {
