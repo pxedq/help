@@ -1,4 +1,6 @@
 # Java - CLI
+> [!TIP]
+> Konkrét JavaCLI feladatokhoz menj a [pxedq](https://github.com/stars/pxedq/lists/javacli)
 ### Osztály létrehozása
 ```
 private class Allat {
