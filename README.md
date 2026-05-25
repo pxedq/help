@@ -418,7 +418,7 @@ app.listen(88, err => console.log(err ? err : "Server on #88"));
 ```
 # Frontend
 > [!NOTE]
-> FMarcell06 frontend help-jéhez kattints [ide]((https://github.com/FMarcell06/help))
+> FMarcell06 frontend help-jéhez kattints [ide](https://github.com/FMarcell06/help)
 
 > [!TIP]
 > FMarcell06 frontend feladataihoz kattints [ide](https://github.com/FMarcell06?tab=repositories)
